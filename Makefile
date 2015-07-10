@@ -14,7 +14,7 @@ endif
 PROJECT=android-ndk-profiler
 
 andprof:
-	$(NDK)/ndk-build $(PROJECT) V=1
+	$(NDK)/ndk-build $(PROJECT) V=1 APP_ABI=x86
 
 ifeq ($(VERSION),)
 dist:

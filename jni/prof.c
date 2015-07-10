@@ -148,8 +148,8 @@ static int get_max_samples_per_sec()
 static void histogram_bin_incr(int sig, siginfo_t *info, void *context)
 {
 	ucontext_t *ucontext = (ucontext_t *) context;
-	struct sigcontext *mcontext = &ucontext->uc_mcontext;
-	uint32_t frompcindex = mcontext->arm_pc;
+	mcontext_t *mcontext = &ucontext->uc_mcontext;
+	uint32_t frompcindex = mcontext->gregs[REG_EIP];
 
 	uint16_t *b = (uint16_t *) hist.bins;
 
