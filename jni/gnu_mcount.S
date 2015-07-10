@@ -12,6 +12,8 @@
 
 mcount:
     push %eax
+	pushl %ecx
+	pushl %edx
     movl 4(%ebp), %eax
 	pushl %ebp
     movl %esp, %ebp
@@ -28,5 +30,7 @@ mcount:
 	   return value.  */
     movl %ebp, %esp
     popl %ebp
+    popl %edx
+    popl %ecx
 	popl %eax
 	ret
